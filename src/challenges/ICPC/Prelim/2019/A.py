@@ -1,21 +1,13 @@
-def print_arr(arr: list[int]):
-    for i in range(0, len(arr)):
-        print(arr[i], "" if i == len(arr) - 1 else " ", end="")
-    print()
+while True:
+    N, M = map(int, input().split())
 
+    if N == M == 0:
+        break
 
-def insertion_sort(a: list[int], n: int):
-    for i in range(1, n):
-        print_arr(a)
-        v = a[i]
-        j = i - 1
-        while j >= 0 and a[j] > v:
-            a[j + 1] = a[j]
-            j -= 1
-        a[j + 1] = v
+    scores = [0 for _ in range(0, N)]
+    for i in range(0, M):
+        P = list(map(int, input().split()))
+        for j in range(0, N):
+            scores[j] += P[j]
 
-
-N = int(input())
-A = list(map(int, input().split()))
-
-insertion_sort(A, N)
+    print(max(scores))
